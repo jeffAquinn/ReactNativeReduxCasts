@@ -29,7 +29,10 @@ const styles = {
   titleStyle: {
     fontSize: 18,
     paddingLeft: 15,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    borderWidth: 0.5,
+    borderColor: '#F8F8F8',
+    borderRadius: 4
   }
 };
 

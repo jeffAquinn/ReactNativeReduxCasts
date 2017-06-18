@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { employeeUpdate, employeeCreate } from '../actions';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSectionButton, Button } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
@@ -15,11 +15,11 @@ class EmployeeCreate extends Component {
     return (
       <Card>
         <EmployeeForm {...this.props} />
-        <CardSection>
+        <CardSectionButton>
           <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
-        </CardSection>
+        </CardSectionButton>
       </Card>
     );
   }
