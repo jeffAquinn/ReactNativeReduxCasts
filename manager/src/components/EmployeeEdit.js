@@ -61,6 +61,7 @@ class EmployeeEdit extends Component {
         </CardSectionButton>
 
         <Confirm
+          style={{ alignSelf: 'bottom' }}
           visible={this.state.showModal}
           onAccept={this.onAccept.bind(this)}
           onDecline={this.onDecline.bind(this)}

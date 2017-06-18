@@ -37,7 +37,7 @@ class LoginForm extends Component {
         <CardSection>
           <Input
             label="Email"
-            placeholder="email@gmail.com"
+            placeholder="email@example.com"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
           />
@@ -70,7 +70,9 @@ const styles = {
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
-    color: 'red'
+    color: 'red',
+    marginTop: 3,
+    marginBottom: 3
   }
 };
 
