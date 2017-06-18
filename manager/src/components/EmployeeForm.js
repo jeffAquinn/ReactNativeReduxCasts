@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
 import { connect } from 'react-redux';
 import { employeeUpdate } from '../actions';
-import { CardSection, Input } from './common';
+import { CardSection, CardSectionButton, Input } from './common';
 
 class EmployeeForm extends Component {
   render() {
@@ -26,10 +26,10 @@ class EmployeeForm extends Component {
           />
         </CardSection>
 
-        <CardSection style={{ flexDirection: 'column' }}>
+        <CardSectionButton style={{ flexDirection: 'column' }}>
           <Text style={styles.pickerTextStyle}>Shift</Text>
           <Picker
-            style={{ flex: 1 }}
+            style={{ justifyContent: 'center' }}
             selectedValue={this.props.shift}
             onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
           >
@@ -41,7 +41,7 @@ class EmployeeForm extends Component {
             <Picker.Item label="Saturday" value="Saturday" />
             <Picker.Item label="Sunday" value="Sunday" />
           </Picker>
-        </CardSection>
+        </CardSectionButton>
       </View>
     );
   }
