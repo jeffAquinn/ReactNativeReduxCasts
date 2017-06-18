@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Button, Spinner } from './common';
+import { Card, CardSection, CardSectionButton, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -57,9 +57,10 @@ class LoginForm extends Component {
           {this.props.error}
         </Text>
 
-        <CardSection>
+        <CardSectionButton>
           {this.renderButton()}
-        </CardSection>
+        </CardSectionButton>
+
       </Card>
     );
   }
