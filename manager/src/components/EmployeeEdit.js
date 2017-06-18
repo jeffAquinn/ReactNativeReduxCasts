@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Communications from 'react-native-communications';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
-import { Card, CardSection, Button, Confirm } from './common';
+import { Card, CardSectionButton, Button, Confirm } from './common';
 
 class EmployeeEdit extends Component {
   state = { showModal: false };
@@ -42,23 +42,23 @@ class EmployeeEdit extends Component {
       <Card>
         <EmployeeForm />
 
-        <CardSection>
+        <CardSectionButton style={{ marginTop: 15 }}>
           <Button onPress={this.onButtonPress.bind(this)}>
             Save Changes
           </Button>
-        </CardSection>
+        </CardSectionButton>
 
-        <CardSection>
+        <CardSectionButton>
           <Button onPress={this.onTextPress.bind(this)}>
             Text Schedule
           </Button>
-        </CardSection>
+        </CardSectionButton>
 
-        <CardSection>
+        <CardSectionButton>
           <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
             Fire Employee
           </Button>
-        </CardSection>
+        </CardSectionButton>
 
         <Confirm
           visible={this.state.showModal}
