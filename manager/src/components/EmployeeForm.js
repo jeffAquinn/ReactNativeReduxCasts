@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text } from 'react-native';
+import { Agenda } from 'react-native-calendars';
 import { connect } from 'react-redux';
 import { employeeUpdate } from '../actions';
 import { CardSection, CardSectionButton, Input } from './common';
@@ -28,20 +29,44 @@ class EmployeeForm extends Component {
 
         <CardSectionButton style={{ flexDirection: 'column' }}>
           <Text style={styles.pickerTextStyle}>Shift</Text>
-          <Picker
-            style={{ justifyContent: 'center' }}
-            selectedValue={this.props.shift}
-            onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
-          >
-            <Picker.Item label="Monday" value="Monday" />
-            <Picker.Item label="Tuesday" value="Tuesday" />
-            <Picker.Item label="Wednesday" value="Wednesday" />
-            <Picker.Item label="Thursday" value="Thursday" />
-            <Picker.Item label="Friday" value="Friday" />
-            <Picker.Item label="Saturday" value="Saturday" />
-            <Picker.Item label="Sunday" value="Sunday" />
-          </Picker>
-        </CardSectionButton>
+            <CardSection>
+              <Agenda
+                // the list of items that have to be displayed in agenda.
+                // the value of date key kas to be an empty array [].
+                // considered that the date in question is not yet loaded
+                items={{ '2012-05-22': [{ text: 'shift 1 - {}' }],
+                   '2012-05-23': [{ text: 'shift 2 - {}' }],
+                   '2012-05-24': [],
+                   '2012-05-25': [{ text: 'shift 3' }, { text: '' }],
+                   '2012-05-26': [{ text: 'shift 4' }, { text: '' }],
+                   '2012-05-27': [{ text: 'shift 5' }, { text: '' }]
+                  }}
+                //items for a certain month should be loaded (month became visible)
+                loadItemsForMonth={() => { console.log('trigger items loading'); }}
+                // callback that gets called on day press
+                onDayPress={() => { console.log('day pressed'); }}
+                // callback that gets called when day changes while scrolling agenda list
+                onDayChange={() => { }}
+                // initially selected day
+                selected={''}
+                // specify how each item should be rendered in agenda
+                renderItem={() => { return (<View />); }}
+                //Day can be undefined if the item is not first in that day.
+                renderDay={() => { return (<View />); }}
+                // specify how empty date content with no items should be rendered
+                renderEmptyDate={() => { return (<View />); }}
+                // specify your item comparison function for increased performance
+                rowHasChanged={(r1, r2) => { return r1.text !== r2.text; }}
+                // Hide knob button. Default = false
+                hideKnob
+                // style={{
+                //   agendaDayTextColor: 'yellow',
+                //   agendaDayNumColor: 'green',
+                //   agendaTodayColor: 'red'
+                // }}
+              />
+              </CardSection>
+          </CardSectionButton>
       </View>
     );
   }
