@@ -32,7 +32,7 @@ const styles = {
     alignSelf: 'center',
     borderWidth: 0.5,
     borderColor: '#F8F8F8',
-    borderRadius: 4
+    borderRadius: 6
   }
 };
 

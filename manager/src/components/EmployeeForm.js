@@ -27,9 +27,9 @@ class EmployeeForm extends Component {
           />
         </CardSection>
 
-        <CardSectionButton style={{ flexDirection: 'column' }}>
+        <CardSectionButton style={{ flexDirection: 'column', marginBottom: 10 }}>
           <Text style={styles.pickerTextStyle}>Shift</Text>
-            <CardSection>
+            <CardSectionButton>
               <Agenda
                 // the list of items that have to be displayed in agenda.
                 // the value of date key kas to be an empty array [].
@@ -42,9 +42,9 @@ class EmployeeForm extends Component {
                    '2012-05-27': [{ text: 'shift 5' }, { text: '' }]
                   }}
                 //items for a certain month should be loaded (month became visible)
-                loadItemsForMonth={() => { console.log('trigger items loading'); }}
+                loadItemsForMonth={() => { }}
                 // callback that gets called on day press
-                onDayPress={() => { console.log('day pressed'); }}
+                onDayPress={() => { }}
                 // callback that gets called when day changes while scrolling agenda list
                 onDayChange={() => { }}
                 // initially selected day
@@ -57,15 +57,13 @@ class EmployeeForm extends Component {
                 renderEmptyDate={() => { return (<View />); }}
                 // specify your item comparison function for increased performance
                 rowHasChanged={(r1, r2) => { return r1.text !== r2.text; }}
-                // Hide knob button. Default = false
-                hideKnob
                 // style={{
                 //   agendaDayTextColor: 'yellow',
                 //   agendaDayNumColor: 'green',
                 //   agendaTodayColor: 'red'
                 // }}
               />
-              </CardSection>
+            </CardSectionButton>
           </CardSectionButton>
       </View>
     );
@@ -77,6 +75,7 @@ const styles = {
     fontSize: 16,
     paddingLeft: 21,
     paddingTop: 10,
+    paddingBottom: 10,
     fontStyle: 'italic'
   }
 };
